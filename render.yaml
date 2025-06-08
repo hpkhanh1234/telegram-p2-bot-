@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: telegram-p2-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        value: 7342819331:AAFSMVYKUlXE3iLvqJsXOr1eCrH0I7-JTZQ
