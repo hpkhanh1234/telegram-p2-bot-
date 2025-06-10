@@ -60,14 +60,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     for question in qa_dict.keys():
         normalized_question = normalize_spaces(question).lower()
-        if normalized_question.startswith(user_question):  # Like "xxxx%"
+        if user_question in normalized_question:  # Like "%xxxx%"
             matched_question = question
             break
 
     if matched_question:
         answer = qa_dict.get(matched_question, "Chưa có đáp án cho câu hỏi này")
     else:
-        answer = "❌ Tôi không tìm thấy câu hỏi phù hợp."
+        answer = "❌ Câu hỏi không có trong kho dữ liệu."
 
     await update.message.reply_text(answer)
 
